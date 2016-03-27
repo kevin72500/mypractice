@@ -15,8 +15,8 @@
  no success
 '''
 getOper=raw_input("input")
-getArr=getOper.split('/')
-package=__import__(getArr[0]+"."+getArr[1])
+each=getOper.split('/')
+package=__import__(each[0]+"."+each[1])
 # pack2=__import__(package)
-func=getattr(package,getArr[2])
+func=getattr(package,each[2])
 func()

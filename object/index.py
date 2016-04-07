@@ -21,7 +21,7 @@
 
 class Province:
 
-	memo='中國23個省之一'
+	memo='中國23個省之一'#实例和类
 
 	def __init__(self,name,capital,leader):
 		self.name=name
@@ -31,11 +31,11 @@ class Province:
 	def sorts_meet(self):
 		print self.name+"开运动会"
 
-	@staticmethod
+	@staticmethod#属于实例和类
 	def Foo():
 		print '每个省都反腐'
 
-	@property
+	@property #属于实例
 	def getProp(self):
 		return "test"
 
@@ -46,8 +46,7 @@ print hb.capital
 hb.sorts_meet()
 print hb.memo
 hb.Foo()
-hb.getProp
-Province.getProp
+print hb.getProp
 print ("\n")
 
 print Province.memo

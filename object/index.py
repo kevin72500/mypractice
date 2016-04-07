@@ -44,9 +44,14 @@ class Province:
 	def show(self):
 		print self.__Thailand
 
-	@property#调用私有变量
+	@property#调用私有变量(只读)
 	def getPrivateVari(self):
 		return self.show()
+
+	@getPrivateVari.setter#（只写）
+	def getPrivateVari(self,value):
+	    self.__Thailand=value
+	
 
 	def __privMethod(self):#私有方法
 		print "我是私有的"
@@ -55,13 +60,17 @@ class Province:
 	def getPrivateMeth(self):
 		return self.__privMethod()
 
-hb=Province("河北","石家莊","李洋")
+# hb=Province("河北","石家莊","李洋")
 # sd=Province("山東","濟南","孔子")
-japan=Province("日本","九州","山本",True)
-japan.show()
-japan.getPrivateVari
-japan.getPrivateMeth
-japan._Province__privMethod()#直接调用私有方法
+japan=Province("日本","九州","山本")
+# japan.show()
+# japan.getPrivateVari
+# japan.getPrivateMeth
+# japan._Province__privMethod()#直接调用私有方法
+print japan.getPrivateVari #只读调用
+japan.getPrivateVari=True
+print japan.getPrivateVari #只写调用
+
 # print hb.capital
 # hb.sorts_meet()
 # print hb.memo

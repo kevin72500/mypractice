@@ -34,7 +34,9 @@ def getTextPath():
     if os.path.isdir(getPath):
         retList=startCheck(getPath)
         for one in retList:
-            listbox.insert(END, one)#.decode('utf8').encode('gbk')
+            # temp=one
+            # print temp
+            listbox.insert(END, unicode(one,'gbk'))#unicode(temp,'utf8').encode('gbk'))#.decode('utf8').encode('gbk')  #.decode('ascii').encode('utf8')
     else:
         tkMessageBox.showinfo("路径不对！！")
 

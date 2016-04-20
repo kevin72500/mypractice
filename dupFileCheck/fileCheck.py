@@ -35,27 +35,20 @@ def startCheck(path):
 
     #添加重复文件到重复文件列表
     for index, fileName in enumerate(fileList):
+    	# a 查找重复数据并输出
+    	# if fileList.count(fileName) > 1:
+    	# 	dupFileList.append(allpath[index])
+    	# b 查找重复数据 ，并排序输出
         if fileList.count(fileName) > 1:
-            dupFileList.append(allpath[index])
-    return dupFileList
-            # print allpath[index]
-    # print #######################################
-    # for i in sorted(dupFileList,key=lambda last:i.split('\\')[-1]):
-    #     print i
-    # return dupFileList
+            dupIndex=[i for i,v in enumerate(fileList) if fileName == fileList[i]]
+            for i in dupIndex:
+	            if i not in dupFileListIndex:
+	            	dupFileListIndex.append(i)
 
-    #     if fileList.count(fileName) > 1:
-    #         dupIndex=[i for i,v in enumerate(fileList) if fileName == fileList[i]]
-    #         for i in dupIndex:
-    #             dupFileListIndex.append(i)
-    #
-    #         # print dupFileListIndex
-    #
-    #     for index in dupFileListIndex:
-    #         dupFileList.append(allpath[index])
-    # # setDupFileList=set(dupFileList)
-    # for i in dupFileList:
-    #     print i
+    for index in dupFileListIndex:
+    	print unicode(allpath[index],'gbk')
+    	dupFileList.append(allpath[index])
+    return dupFileList
 
 if __name__ == '__main__':
     path = raw_input("请输入需要开始的路径：").strip()
